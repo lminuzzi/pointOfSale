@@ -1,0 +1,67 @@
+﻿2017-11-11T03:38:18.3788662-02:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2017-11-11T03:38:18.5170338-02:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\Projetos\VALTECH\PointOfSaleTest\PointOfSaleTest\bin\Debug\PointOfSaleTest.dll
+2017-11-11T03:38:18.5180168-02:00;VSTestExecutionThread;Info;Profile: Default
+2017-11-11T03:38:18.7582754-02:00;Thread#4;Info;Discovering target: Default
+2017-11-11T03:38:18.7588972-02:00;Thread#4;Info;Discovering tests from assembly: D:\Projetos\VALTECH\PointOfSaleTest\PointOfSaleTest\bin\Debug\PointOfSaleTest.dll
+Appdomain Disposed
+Test Suite Dump
+#0: PointOfSaleTest/Default - 
+#1: Default - 
+#2: PointOfSaleTest - 
+#3: Categories - 
+#4: Add categories - TestAssembly:PointOfSaleTest/Feature:Categories/Scenario:Add+categories
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #4 from normal test queue 
+Thread#0:Scheduler: considering testitem #4 for thread 0
+Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #4 for thread 0
+Thread#0:Scheduler: Test #4 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for PointOfSaleTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Loading SpecRun type 'TechTalk.SpecRun.Framework.TestAssemblyExecutor' from: C:\Users\lminu\AppData\Local\Temp\VisualStudioTestExplorerExtensions\SpecRun.Runner.1.6.3\tools\TechTalk.SpecRun.Framework.Executor.dll
+Thread#0: Test #4/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I have entered a description into the category form
+Thread#0:T:No matching step definition found for the step. Use the following code to create one:
+Thread#0:T:        [Given(@"I have entered a description into the category form")]
+Thread#0:T:public void GivenIHaveEnteredADescriptionIntoTheCategoryForm()
+Thread#0:T:{
+Thread#0:T:    ScenarioContext.Current.Pending();
+Thread#0:T:}
+Thread#0:B:When I press add
+Thread#0:T:skipped because of previous errors
+Thread#0:B:Then the result should be 'Category added successfully.' on the screen
+Thread#0:T:skipped because of previous errors
+Thread#0:T:Pending: No matching step definition found for one or more steps.
+Thread#0:T:using System;
+Thread#0:T:using TechTalk.SpecFlow;
+Thread#0:T:namespace MyNamespace
+Thread#0:T:{
+Thread#0:T:    [Binding]
+Thread#0:T:    public class StepDefinitions
+Thread#0:T:    {
+Thread#0:T:        [Given(@"I have entered a description into the category form")]
+Thread#0:T:public void GivenIHaveEnteredADescriptionIntoTheCategoryForm()
+Thread#0:T:{
+Thread#0:T:    ScenarioContext.Current.Pending();
+Thread#0:T:}
+Thread#0:T:    }
+Thread#0:T:}
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #4/0 is finished on thread #0 as Pending within 0,4871007 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+Total: 1
+Succeeded: 0
+Ignored: 0
+Pending: 1
+Skipped: 0
+Failed: 0

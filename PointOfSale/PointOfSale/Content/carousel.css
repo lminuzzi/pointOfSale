@@ -1,0 +1,19 @@
+﻿.partner-carousel .carousel-control {
+    padding-top: 30px;
+    width: 80px;
+    font-size: 3em;
+}
+
+#partner-carousel .well {
+    margin: 0;
+    padding: 0;
+    border: 0px solid transparent;
+    background-color: #fff;
+}
+
+#partner-carousel .thumbnail {
+    margin: 0;
+    padding: 0;
+    border: 0px solid transparent;
+    background-color: #fff;
+}

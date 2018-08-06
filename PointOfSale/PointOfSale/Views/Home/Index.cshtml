@@ -1,0 +1,88 @@
+﻿@model IEnumerable<PointOfSale.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@if (!Request.IsAuthenticated)
+{
+    <div class="jumbotron">
+        <h1>Point of Sale</h1>
+        <p class="lead">You are not logged in.</p>
+
+        <p>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</p>
+    </div>
+    return;
+}
+<div class="jumbotron">
+    <h1>Point of Sale</h1>
+</div>
+@{
+    var length = Model.Count();
+    int itensPerPage = 4;
+    if (length == 0)
+    {
+        return;
+    }
+    int itens = (int)length / itensPerPage;
+    string active = "active";
+}
+<div class="row">
+    <div class="col-md-12">
+    <h2>Chose a Product.</h2>
+    <p>
+        @Styles.Render("~/Content/carousel")
+        <div class="col-md-12" id="partner-carousel">
+            <div class="well">
+                <div id="buysCarousel" class="carousel partner-carousel slide">
+                    <!-- Carousel items -->
+                    <div class="carousel-inner" id="buysCarouselInner">
+                        <!--/item-->
+                        @for (int j = 0; j <= itens; j++)
+                        {
+                            <div class="item @active">
+                                <div class="row">
+                                    @for (int k = 0 + (itensPerPage * j); k < itensPerPage + (itensPerPage * j) && k < length; k++)
+                                    {
+                                        PointOfSale.Models.Product product = Model.ElementAt(k);
+                                        RouteValueDictionary route = new RouteValueDictionary();
+                                        
+
+                                        <div class="col-sm-3">
+                                            <img src="http://placehold.it/300x300&text= @product.Name - @product.Price" alt="@product.Name" class="img-responsive">
+                                            <p class="text-center">
+                                                @Html.ActionLink("Buy", "AddCart", "Order", new { id = product.Id }, htmlAttributes: new { id = "buyLink_" + product.Id })
+                                            </p>
+        <!--ActionLink(this HtmlHelper htmlHelper, string linkText, string actionName, string controllerName, RouteValueDictionary routeValues, IDictionary<string, object> htmlAttributes);-->
+                                        </div>
+                                    }
+
+                                    </div>
+                                    <!--/row-->
+                                </div>
+                            <!--/item-->
+                                active = "";
+                            }
+                        </div>
+                        <!--/carousel-inner--> <a class="left carousel-control" href="#buysCarousel" data-slide="prev">‹</a>
+                        <a class="right carousel-control" href="#buysCarousel" data-slide="next">›</a>
+                    </div>
+                    <!--/myCarousel-->
+                </div>
+                <!--/well-->
+            </div>
+        </p>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#buysCarousel').carousel({
+                interval: 5000
+            })
+
+            $('#buysCarousel').on('slid.bs.carousel', function () {
+                //alert("slid");
+            });
+        });
+    </script>
+}

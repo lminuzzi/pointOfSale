@@ -1,0 +1,103 @@
+﻿@model PointOfSale.Models.Order
+@{
+    ViewBag.Title = "Cart";
+    var categoryOld = 0;
+    var numItens = 0;
+    var indexItem = 0;
+}
+
+<h2>Cart</h2>
+
+@if(Model.ItemProduct == null)
+{
+    return;
+}
+
+@if (Model.ItemProduct.Count == 0)
+{
+    Response.Redirect("~/Home/Index");
+    return;
+}
+
+@Styles.Render("~/Content/cart")
+
+@using (Html.BeginForm("Cart", "Order", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="popover-markup">
+                <div class="content hide">
+                    @foreach (var item in Model.ItemProduct.ToList<PointOfSale.Models.ItemProduct>())
+                    {
+                        var productId = item.Product.Id;
+                        if (item.Product.Category != null && item.Product.Category.Id != categoryOld)
+                        {
+                            <div class="form-inline"><h4>@item.Product.Category.Name</h4></div>
+                        }
+
+                        <div class="form-group" id="product-@productId">
+                            @Html.HiddenFor(o => o.ItemProduct[indexItem].ProductId, new { htmlAttributes = new { @class = "form-control text-center" } })
+                            <label class="control-label col-md-5"><strong>@item.Product.Name - <span class="price" id="price-@productId">@item.Product.Price</span></strong></label>
+                            <div class="input-group number-spinner col-md-3">
+                                <span class="input-group-btn">
+                                    <a class="btn btn-danger" data-dir="dwn" id="btn-dwn-@productId"><span class="glyphicon glyphicon-minus"></span></a>
+                                </span>
+                                    @Html.EditorFor(o => o.ItemProduct[indexItem].Quantity, new { htmlAttributes = new { @id = "quantity-" + indexItem, @class = "form-control text-center", @max = "9", @min = "1", @readonly = "" } })
+                                <span class="input-group-btn">
+                                    <a class="btn btn-info" data-dir="up" id="btn-up-@productId"><span class="glyphicon glyphicon-plus"></span></a>
+                                </span>
+                                <span>
+                                    @Html.ActionLink("Remove", "RemoveCart", "Order", new { id = productId }, null)
+                                </span>
+                            </div>
+                        </div><br/>
+                        if(item.Product.Category != null)
+                        {
+                            categoryOld = item.Product.Category.Id;
+                        }
+                        numItens += item.Quantity;
+                        indexItem++;
+                    }
+                    <br/>
+                </div>
+                <div class="trigger form-group form-group-lg form-group-icon-left">
+                    <div>
+                        @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(o => o.Amount, new { htmlAttributes = new { @id = "amount", @class = "form-control", value = Model.Amount, @readonly = "" } })
+                    </div>
+                    <div>
+                        <i class="fa fa-users input-icon input-icon-highlight"></i>
+                        <label class="col-md-2">Itens</label>
+                        <input type="number" name="totalItens" id="totalItens" class="form-control" value="@numItens" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    for (var index = 0; index < Model.ItemProduct.Count * 4; index++)
+    {
+        <br/>
+    }
+
+    <div>
+        @Html.LabelFor(model => model.PaymentId, "PaymentId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("PaymentId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PaymentId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="Purchase" class="btn btn-default" />
+        </div>
+    </div><br/><br /><br />
+
+}
+
+@Html.ActionLink("Back to List", "Index", "Home")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/cart")
+}

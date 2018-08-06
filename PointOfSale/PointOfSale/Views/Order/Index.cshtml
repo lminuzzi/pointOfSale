@@ -1,0 +1,97 @@
+﻿@model IEnumerable<PointOfSale.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" id="table-order">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtPayment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DtOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DtPayment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @switch (item.OrderStatus)
+                {
+                    case PointOfSale.Models.OrderStatus.Approved:
+                            @Html.ActionLink("Complete", "Complete", new { id = item.OrderId });
+                            <span> | </span>
+                            @Html.ActionLink("Return", "Return", new { id = item.OrderId });
+                            <span> | </span>
+                            @Html.ActionLink("Details", "Details", new { id = item.OrderId });
+                            <span> | </span>
+                            @Html.ActionLink("Cancel", "Cancel", new { id = item.OrderId });
+                        break;
+                    case PointOfSale.Models.OrderStatus.InAnalysis:
+                            @Html.ActionLink("Approve", "Approve", new { id = item.OrderId });
+                            <span> | </span>
+                            @Html.ActionLink("Return", "Return", new { id = item.OrderId });
+                            <span> | </span>
+                            @Html.ActionLink("Details", "Details", new { id = item.OrderId });
+                            <span> | </span>
+                            @Html.ActionLink("Cancel", "Cancel", new { id = item.OrderId });
+                        break;
+                    case PointOfSale.Models.OrderStatus.Canceled:
+                    case PointOfSale.Models.OrderStatus.Complete:
+                    case PointOfSale.Models.OrderStatus.Returned:
+                            @Html.ActionLink("Details", "Details", new { id = item.OrderId });
+                        break;
+                    default:
+                        break;
+                }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquerytablesorter")
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(function(){
+                $(".table").tablesorter();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,62 @@
+﻿2017-11-11T03:38:18.3788662-02:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2017-11-11T03:38:18.5170338-02:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\Projetos\VALTECH\PointOfSaleTest\PointOfSaleTest\bin\Debug\PointOfSaleTest.dll
+2017-11-11T03:38:18.5180168-02:00;VSTestExecutionThread;Info;Profile: Default
+2017-11-11T03:38:18.7582754-02:00;VSTestExecutionThread;Info;Discovering target: Default
+2017-11-11T03:38:18.7588972-02:00;VSTestExecutionThread;Info;Discovering tests from assembly: D:\Projetos\VALTECH\PointOfSaleTest\PointOfSaleTest\bin\Debug\PointOfSaleTest.dll
+2017-11-11T03:38:23.8105804-02:00;VSTestExecutionThread;Info;Log file: file:///D:\Projetos\VALTECH\PointOfSaleTest\TestResults\PointOfSaleTest_Default_2017-11-11T033818.log
+2017-11-11T03:38:23.8115650-02:00;VSTestExecutionThread;Info;SpecFlow+Runner execution finished
+2017-11-11T03:40:46.0284105-02:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2017-11-11T03:40:46.0423731-02:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\Projetos\VALTECH\PointOfSaleTest\PointOfSaleTest\bin\Debug\PointOfSaleTest.dll
+2017-11-11T03:40:46.0428737-02:00;VSTestExecutionThread;Info;Profile: Default
+2017-11-11T03:40:46.0448917-02:00;VSTestExecutionThread;Info;Discovering target: Default
+2017-11-11T03:40:46.0453926-02:00;VSTestExecutionThread;Info;Discovering tests from assembly: D:\Projetos\VALTECH\PointOfSaleTest\PointOfSaleTest\bin\Debug\PointOfSaleTest.dll
+2017-11-11T03:40:47.6166940-02:00;VSTestExecutionThread;Info;Log file: file:///D:\Projetos\VALTECH\PointOfSaleTest\TestResults\PointOfSaleTest_Default_2017-11-11T034046.log
+2017-11-11T03:40:47.6176947-02:00;VSTestExecutionThread;Info;SpecFlow+Runner execution finished
+2017-11-11T03:44:28.9103586-02:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2017-11-11T03:44:28.9253689-02:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\Projetos\VALTECH\PointOfSaleTest\PointOfSaleTest\bin\Debug\PointOfSaleTest.dll
+2017-11-11T03:44:28.9258691-02:00;VSTestExecutionThread;Info;Profile: Default
+2017-11-11T03:44:28.9278709-02:00;Thread#20;Info;Discovering target: Default
+2017-11-11T03:44:28.9283710-02:00;Thread#20;Info;Discovering tests from assembly: D:\Projetos\VALTECH\PointOfSaleTest\PointOfSaleTest\bin\Debug\PointOfSaleTest.dll
+Appdomain Disposed
+Test Suite Dump
+#0: PointOfSaleTest/Default - 
+#1: Default - 
+#2: PointOfSaleTest - 
+#3: Categories - 
+#4: Add categories - TestAssembly:PointOfSaleTest/Feature:Categories/Scenario:Add+categories
+End: Test Suite Dump
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: testitem #4 from normal test queue 
+Thread#0:Scheduler: considering testitem #4 for thread 0
+Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+Thread#0:Scheduler: using testitem #4 for thread 0
+Thread#0:Scheduler: Test #4 is scheduled for thread
+Thread#0:Scheduler: with testItemExecutionIndex 0
+Thread #0: creating new test thread executor for PointOfSaleTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+Loading SpecRun type 'TechTalk.SpecRun.Framework.TestAssemblyExecutor' from: C:\Users\lminu\AppData\Local\Temp\VisualStudioTestExplorerExtensions\SpecRun.Runner.1.6.3\tools\TechTalk.SpecRun.Framework.Executor.dll
+Thread#0: Test #4/0 is started on thread #0
+Thread#0:T:-> Using app.config
+Thread#0:B:Given I have entered a 'description' into the category form
+Thread#0:T:done: CategoriesSteps.GivenIHaveEnteredAIntoTheCategoryForm("description") (0,0s)
+Thread#0:B:When I press add
+Thread#0:T:done: CategoriesSteps.WhenIPressAdd() (0,0s)
+Thread#0:B:Then the result should be 'Category added successfully.' on the screen
+Thread#0:T:Category added successfully.
+Thread#0:T:done: CategoriesSteps.ThenTheResultShouldBeOnTheScreen("Category added su...") (0,0s)
+Thread#0:Scheduler: get next test for thread 0
+Thread#:Scheduler: at the end of normal test queue
+Thread#0:Scheduler: enumerator for thread is at end
+Thread#0:Scheduler: No more tests for thread
+Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 0,2302465 seconds
+Appdomain Disposed
+Thread#-1:Scheduler: get next test for thread -1
+Thread#:Scheduler: at the end of normal test queue
+Thread#-1:Scheduler: enumerator for thread is at end
+Total: 1
+Succeeded: 1
+Ignored: 0
+Pending: 0
+Skipped: 0
+Failed: 0

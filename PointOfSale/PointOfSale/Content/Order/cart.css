@@ -1,0 +1,28 @@
+﻿.popover{
+  background-clip:padding-box;
+  background-color:#FFFFFF;
+  border:1px solid rgba(0, 0, 0, 0.2);
+  border-radius:6px;
+  box-shadow:rgba(0, 0, 0, 0.2) 0 5px 10px;
+  display:none;
+  left:0;
+  max-width:1100px;
+  padding:1px;
+  position:absolute;
+  text-align:left;
+  top:0;
+  white-space:normal;
+  z-index:1010;
+}
+
+.popover-markup .popover{
+  width:150%;
+}
+
+.popover-markup label{
+  padding:0px;
+}
+
+.container{
+    margin:0px auto;
+}
